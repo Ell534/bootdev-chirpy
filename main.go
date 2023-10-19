@@ -10,6 +10,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.Handle("/", http.FileServer(http.Dir(".")))
+	mux.Handle("assets/logo.png", http.FileServer(http.Dir("assets/logo.png")))
 	corsMux := middlewareCors(mux)
 
 	srv := &http.Server{
